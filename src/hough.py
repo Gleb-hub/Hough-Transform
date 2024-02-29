@@ -1,7 +1,7 @@
 import numpy as np
 from os import getenv
 from helper import find_max
-from plot import draw_lines, draw_img
+from image import draw_lines, draw_img
 
 threshold_ratio = float(getenv('THRESHOLD_RATIO', 0.9))
 
