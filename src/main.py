@@ -1,25 +1,10 @@
-import os
-import cv2 as cv
-import matplotlib.pyplot as plt
+import hough
+import image
+from os import getenv
+from pathlib import Path
 
-from hough import run 
-
-
-FOLDER = 'images/'
-
-
-def get_img(name):
-    flow_img = cv.imread(FOLDER + name)
-    final_img = cv.imread(FOLDER + name, flow_img.shape[0] * 2)
-    plt.imshow(final_img)
-    return final_img
-
-
-images = os.listdir(FOLDER)
-
-img = get_img('test.jpg')
-
+folder_path = Path(getenv('IMAGES_FOLDER_PATH', './images/')).resolve()
 
 if __name__ == '__main__':
-    run(img, plt)
-    
+    hough.run(image.get_img(str(folder_path / 'test2.jpg')))
+    image.show()
